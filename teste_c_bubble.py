@@ -1,5 +1,4 @@
 from bucket_sort import *
-from time import time
 
 
 #lista = [0.010, 0.154, 0.008, 0.0, 0.009, 0.048, 0.007, 0.055, 0]

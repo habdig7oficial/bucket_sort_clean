@@ -27,7 +27,7 @@ def bucket_sort_bubble(array: list[float]):
     buckets = bucket_sort(array)
     i = 0
     while i < len(buckets):
-        buckets[i] = py_bubble(buckets[i])
+        buckets[i] = bubble_sort(buckets[i])
         i += 1
     flatten = [j for i in buckets for j in i]
     return flatten
