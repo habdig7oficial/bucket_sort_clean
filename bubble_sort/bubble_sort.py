@@ -1,9 +1,9 @@
 def bubble_sort(vec, key = None, reverse = False):
 
-    print(f"\nvec: {vec}")
+    #print(f"\nvec: {vec}")
     if key == None:
         key = vec.copy()
-        print(f"\nkey: {key}")
+       # print(f"\nkey: {key}")
     #print(key)
     
     for i in range(len(vec) - 1):
