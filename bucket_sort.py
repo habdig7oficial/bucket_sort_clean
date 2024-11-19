@@ -14,25 +14,35 @@
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>5.
 
 
+# Função que realiza a ordenação
 def bucket_sort(array: list[float]):
-    buckets = [[] for i in range(len(array))]
+    # Encontrar o maior valor para normalizar os índices
+    maximo = max(array)
+
+    # Criar baldes vazios
+    buckets = [[] for _ in range(len(array))]
     print(f"Balde Vazio: {buckets}\n")
-    i = 0
-    while i < len(array):
-        index = int(array[i] * len(array))
+
+    # Inserir os elementos nos baldes correspondentes
+    for i in range(len(array)):
+        # Normalizar o valor para o intervalo [0, 1] e calcular o índice
+        index = int((array[i] / maximo) * (len(array) - 1))
         buckets[index].append(array[i])
         print(f"i: {i} -- nº do balde: {index} -- valor inserido: {array[i]}\n{buckets}\n")
-        i += 1
-    
+
     return buckets
 
+# Método que organiza os baldes e retorna a lista ordenada
 def bucket_sort_built_in(array: list[float]):
+    # Preenche os baldes
     buckets = bucket_sort(array)
-    i = 0
-    while i < len(buckets):
-        buckets[i].sort()
-        i += 1
-    flatten = [j for i in buckets for j in i]
+
+    # Ordena os elementos de cada balde
+    for bucket in buckets:
+        bucket.sort()
+
+    # Concatena os baldes ordenados
+    flatten = [num for bucket in buckets for num in bucket]
     return flatten
 
 from bubble_sort.bubble_sort import bubble_sort as py_bubble
